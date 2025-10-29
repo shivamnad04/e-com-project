@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import API from "../api";
+import API from "../api.js";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/cartContext.jsx";
 
@@ -41,7 +41,7 @@ export default function Cart() {
               </tr>
             </thead>
             <tbody>
-              {cart.items.map(item => (
+              {cart.items.map((item) => (
                 <tr key={item._id} className="border-t">
                   <td className="p-2">{item.name}</td>
                   <td>{item.qty}</td>

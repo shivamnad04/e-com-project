@@ -1,18 +1,22 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import ProductList from "./components/ProductList";
-import Cart from "./components/Cart";
+import ProductList from "./pages/ProductList.jsx";
+import Cart from "./pages/Cart.jsx";
 import Checkout from "./components/Checkout";
 import { useCart } from "./context/cartContext.jsx";
 
 export default function App() {
-   const { cartCount } = useCart();
+  const { cartCount } = useCart();
   return (
     <Router>
       <nav className="p-4 bg-gray-800 text-white flex justify-between">
-        <Link to="/" className="font-bold text-lg">🛍 E-Commerce</Link>
+        <Link to="/" className="font-bold text-lg">
+          🛍 E-Commerce
+        </Link>
         <div>
-          <Link to="/" className="px-3">Products</Link>
+          <Link to="/" className="px-3">
+            Products
+          </Link>
           <Link to="/cart" className="px-3 relative">
             🛒 Cart
             {cartCount > 0 && (
