@@ -1,82 +1,59 @@
-🛒 E-Com Cart — Full Stack Application
+# 🛒 E-Com Cart (Full Stack)
 
-A complete E-Commerce Cart System built with Node.js, Express.js, MongoDB, and React.js (Vite).
-It provides a smooth shopping experience — from browsing products to checkout and generating receipts.
+This project is a simple full-stack **E-Commerce Cart and Checkout**
+system built with **Node.js**, **Express**, **MongoDB (mock)**, and
+**React.js**.
 
-🚀 Project Overview
+------------------------------------------------------------------------
 
-E-Com Cart is a demo full-stack project that demonstrates:
+## 🧩 Backend (Node.js + Express)
 
-Product listing and cart management
+### Overview
 
-Checkout process with user details
+This backend provides a RESTful API for managing products, cart, and
+checkout.\
+It is designed for simplicity and educational purposes using mock or
+in-memory data.
 
-Dynamic receipt generation and PDF download
+### Folder Structure
 
-RESTful API integration between backend and frontend
+    backend/
+     ├── server.js
+     ├── models/
+     │    ├── product.js
+     │    └── cartItem.js
+     ├── controllers/
+     │    ├── productController.js
+     │    ├── cartController.js
+     │    └── checkoutController.js
+     ├── routers/
+     │    ├── productRouter.js
+     │    ├── cartRouter.js
+     │    └── checkoutRouter.js
+     ├── package.json
 
-📁 Folder Structure
-E-Com-Cart/
- ├── backend/
- │   ├── server.js
- │   ├── models/
- │   │    ├── product.js
- │   │    └── cartItem.js
- │   ├── controllers/
- │   │    ├── productController.js
- │   │    ├── cartController.js
- │   │    └── checkoutController.js
- │   ├── routers/
- │   │    ├── productRouter.js
- │   │    ├── cartRouter.js
- │   │    └── checkoutRouter.js
- │   ├── package.json
- │
- ├── frontend/
- │   ├── src/
- │   │    ├── components/
- │   │    │    ├── ProductList.jsx
- │   │    │    ├── Cart.jsx
- │   │    │    ├── Checkout.jsx
- │   │    │    └── ReceiptModal.jsx
- │   │    ├── App.jsx
- │   │    ├── index.js
- │   │    └── api.js
- │   ├── package.json
- │
- └── README.md
+### Installation & Setup
 
-🖥️ Backend — E-Com Cart API
-
-The backend provides a RESTful API for managing products, cart operations, and checkout.
-It uses Node.js, Express.js, and MongoDB (mock or local).
-
-⚙️ Installation & Setup
-# Clone repository
+``` bash
 git clone <repository-url>
 cd backend
-
-# Install dependencies
 npm install
-
-# Run server
 npm start
+```
 
-# Server running at:
-http://localhost:5000
+Server runs at → `http://localhost:5000`
 
-📘 API Endpoints
-1. GET /api/products
+------------------------------------------------------------------------
+
+### API Endpoints
+
+#### GET /api/products
 
 Fetch all available mock products.
 
-Example Request:
+**Response:**
 
-GET /api/products
-
-
-Example Response:
-
+``` json
 [
   {
     "_id": "69026d366efed69ad52083db",
@@ -93,196 +70,188 @@ Example Response:
     "description": "Noise-cancelling Bluetooth earbuds with 20-hour battery life."
   }
 ]
+```
 
-2. POST /api/cart
+#### POST /api/cart
 
-Add a product to the cart (or update quantity if already present).
+Add a product to the cart (or update quantity).
 
-Request Body:
+**Request Body:**
 
-{
-  "productId": 1,
-  "qty": 2
-}
+``` json
+{ "productId": 1, "qty": 2 }
+```
 
+**Response:**
 
-Response:
+``` json
+{ "message": "Added to cart" }
+```
 
-{
-  "message": "Added to cart"
-}
-
-3. GET /api/cart
+#### GET /api/cart
 
 Retrieve all cart items with total price.
 
-Response:
+**Response:**
 
+``` json
 {
   "items": [
-    {
-      "_id": "690273586081e64f610ff071",
-      "productId": 2,
-      "name": "Wireless Earbuds",
-      "price": 1599,
-      "qty": 1,
-      "subtotal": 1599
-    }
+    { "productId": 2, "name": "Wireless Earbuds", "price": 1599, "qty": 1, "subtotal": 1599 }
   ],
   "total": 1599
 }
+```
 
-4. DELETE /api/cart/:id
+#### DELETE /api/cart/:id
 
-Remove a product from the cart by its ID.
+Remove a product from the cart.
 
-Example:
+**Response:**
 
-DELETE /api/cart/1
+``` json
+{ "message": "Item removed" }
+```
 
+#### POST /api/checkout
 
-Response:
+Simulate checkout and generate a receipt.
 
-{
-  "message": "Item removed"
-}
+**Response:**
 
-5. POST /api/checkout
-
-Simulate a checkout process and generate a mock receipt.
-
-Response:
-
+``` json
 {
   "message": "Checkout successful",
   "receipt": {
     "total": 1599,
     "timestamp": "2025-10-29T20:10:58.409Z",
-    "cart": [
-      {
-        "name": "Wireless Earbuds",
-        "price": 1599,
-        "qty": 1
-      }
-    ]
+    "cart": [{ "name": "Wireless Earbuds", "price": 1599, "qty": 1 }]
   }
 }
+```
 
-🗃️ Database (MongoDB)
-Product Schema
+------------------------------------------------------------------------
+
+### Database Schemas
+
+**Product:**
+
+``` js
 {
-  _id: ObjectId,
   id: Number,
   name: String,
   price: Number,
   description: String
 }
+```
 
-CartItem Schema
+**CartItem:**
+
+``` js
 {
-  _id: ObjectId,
   productId: Number,
   name: String,
   price: Number,
   qty: Number,
   subtotal: Number
 }
+```
 
-🧰 Technologies Used
+### Technologies
 
-Node.js
+-   Node.js
+-   Express.js
+-   MongoDB (mock/local)
+-   CORS
+-   Body-parser
 
-Express.js
+------------------------------------------------------------------------
 
-MongoDB (Mock / Local)
+## 🎨 Frontend (React + Tailwind)
 
-CORS
+### Overview
 
-Body-parser / JSON middleware
+Responsive and modern UI for browsing products, managing cart, checkout,
+and digital receipts.
 
-💻 Frontend — E-Com Cart UI
+### Folder Structure
 
-The frontend is built with React.js (Vite) and provides a clean, responsive shopping interface.
+    frontend/
+     ├── src/
+     │   ├── components/
+     │   │    ├── ProductList.jsx
+     │   │    ├── Cart.jsx
+     │   │    ├── Checkout.jsx
+     │   │    └── ReceiptModal.jsx
+     │   ├── App.jsx
+     │   ├── index.js
+     │   └── api.js
+     ├── package.json
 
-⚙️ Installation & Setup
+### Installation & Setup
+
+``` bash
 cd frontend
 npm install
 npm run dev
+```
 
+Runs at → `http://localhost:5173`
 
-Access the app:
+------------------------------------------------------------------------
 
-http://localhost:5173
+### Features
 
-🧩 Features
+-   Fetch products from backend
+-   Add/remove items from cart
+-   Dynamic cart badge
+-   Checkout form with customer info
+-   Generate downloadable PDF receipt
+-   Modern UI (Tailwind CSS)
+-   Responsive design
 
-Fetch products from backend API
+------------------------------------------------------------------------
 
-Add or remove items from the cart
+### API Integration
 
-Dynamic cart badge counter
+  Method   Endpoint        Description
+  -------- --------------- ---------------------
+  GET      /api/products   Fetch all products
+  POST     /api/cart       Add product to cart
+  GET      /api/cart       Fetch cart + total
+  DELETE   /api/cart/:id   Remove item
+  POST     /api/checkout   Checkout + receipt
 
-Checkout form for customer details
+------------------------------------------------------------------------
 
-Receipt with product details and total
+### Key Components
 
-Download receipt as PDF
+**ProductList.jsx** -- Displays products grid.\
+**Cart.jsx** -- Shows cart items and total.\
+**Checkout.jsx** -- Form for customer details.\
+**ReceiptModal.jsx** -- Digital bill with download option.
 
-Modern responsive UI (Tailwind CSS)
+------------------------------------------------------------------------
 
-🔗 API Integration
-Method	Endpoint	Description
-GET	/api/products	Fetch all products
-POST	/api/cart	Add a product to the cart
-GET	/api/cart	Fetch cart items & total
-DELETE	/api/cart/:id	Remove cart item
-POST	/api/checkout	Checkout & get receipt
-⚛️ Tech Stack
+### Example Flow
 
-React.js (Vite)
+1.  User visits `/` → sees products.\
+2.  Adds items to cart.\
+3.  Opens `/cart` → reviews order.\
+4.  Proceeds to `/checkout`.\
+5.  Submits → sees receipt modal.\
+6.  Downloads PDF receipt.
 
-Tailwind CSS
+------------------------------------------------------------------------
 
-Axios
+### Tech Stack
 
-jsPDF & jspdf-autotable
+-   React (Vite)
+-   Tailwind CSS
+-   Axios
+-   jsPDF + jspdf-autotable
+-   React Router DOM
 
-React Router
+------------------------------------------------------------------------
 
-🧱 Key Components
-ProductList.jsx
-
-Displays product grid fetched from backend with “Add to Cart” functionality.
-
-Cart.jsx
-
-Shows all cart items, total amount, and options to remove/update quantities.
-
-Checkout.jsx
-
-Form to collect user info and initiate checkout.
-
-ReceiptModal.jsx
-
-Displays a professional digital receipt and allows PDF download.
-
-🧭 Example User Flow
-
-User visits / → views all products
-
-Adds desired items to the cart
-
-Opens /cart → reviews and updates quantities
-
-Proceeds to /checkout → fills in user details
-
-Submits checkout → receipt modal appears
-
-User can download PDF or close receipt to return home
-
-🪄 License
-
-MIT © 2025 — E-Com Cart Full Stack
-
-
-
+© 2025 E-Com Cart \| Full-Stack Demo
