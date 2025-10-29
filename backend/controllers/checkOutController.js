@@ -16,7 +16,15 @@ const checkout = async (req, res) => {
 
     const receipt = {
       total,
-      timestamp: new Date().toISOString()
+      timestamp: new Date().toISOString(),
+      cart: cartItems.map(item => {
+        const prod = products.find(p => p.id === item.productId);
+        return {
+          name: prod?.name || "Unknown",
+          price: prod?.price || 0,
+          qty: item.qty,
+        };
+      }),
     };
 
     // Clear cart

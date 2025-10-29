@@ -58,5 +58,17 @@
     "name": "Desk Lamp",
     "price": 799,
     "description": "Adjustable LED desk lamp with touch control and 3 brightness modes."
+  },
+  {
+    "id": 11,
+    "name": "Fitness Tracker",
+    "price": 1499,
+    "description": "Waterproof fitness tracker with step counter and calorie monitor."
+  },
+  {
+    "id": 12,
+    "name": "Travel Mug",
+    "price": 599,
+    "description": "Insulated stainless steel travel mug with spill-proof lid."
   }
 ]
