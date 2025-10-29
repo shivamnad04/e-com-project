@@ -1,11 +1,11 @@
 const Product = require("../models/product");
 
-// GET /api/products
+
 const getProducts = async (req, res) => {
   try {
     const products = await Product.find();
 
-    // If DB empty → insert mock data
+    
     if (products.length === 0) {
       const mockProducts = [
         { id: 1, name: "Vibe T-Shirt", price: 499, description: "Soft cotton T-shirt" },

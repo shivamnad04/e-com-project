@@ -7,7 +7,7 @@ export default function ReceiptModal({ receipt, onClose }) {
 
   const { total, timestamp, cart = [], user = {}, items = [] } = receipt;
 
-  // --- PDF Download Handler ---
+
   const handleDownload = () => {
     const doc = new jsPDF();
 

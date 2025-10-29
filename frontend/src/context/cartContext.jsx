@@ -6,7 +6,7 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartCount, setCartCount] = useState(0);
 
-  // fetch cart count when app loads
+
   const loadCart = async () => {
     try {
       const res = await API.get("/cart");
@@ -20,7 +20,7 @@ export const CartProvider = ({ children }) => {
     loadCart();
   }, []);
 
-  // update count manually from components
+
   const refreshCart = async () => {
     const res = await API.get("/cart");
     setCartCount(res.data.items.length);

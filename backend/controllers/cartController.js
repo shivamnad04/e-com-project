@@ -1,7 +1,7 @@
 const CartItem = require("../models/cartItem");
 const Product = require("../models/product");
 
-// POST /api/cart
+
 const addToCart = async (req, res) => {
   const { productId, qty } = req.body;
 
@@ -24,7 +24,7 @@ const addToCart = async (req, res) => {
   }
 };
 
-// DELETE /api/cart/:id
+
 const removeFromCart = async (req, res) => {
   try {
     const productId = req.params.id;
@@ -36,7 +36,7 @@ const removeFromCart = async (req, res) => {
   }
 };
 
-// GET /api/cart
+
 const getCart = async (req, res) => {
   try {
     const items = await CartItem.find();

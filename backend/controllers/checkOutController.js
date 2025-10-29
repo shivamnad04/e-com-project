@@ -1,7 +1,7 @@
 const CartItem = require("../models/cartItem");
 const Product = require("../models/product");
 
-// POST /api/checkout
+
 const checkout = async (req, res) => {
   try {
     const cartItems = await CartItem.find();
@@ -27,7 +27,7 @@ const checkout = async (req, res) => {
       }),
     };
 
-    // Clear cart
+   
     await CartItem.deleteMany({});
 
     res.json({ message: "Checkout successful", receipt });
