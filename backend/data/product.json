@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Vibe T-Shirt",
+    "price": 499,
+    "description": "Soft cotton T-shirt with minimalist Vibe logo print."
+  },
+  {
+    "id": 2,
+    "name": "Wireless Earbuds",
+    "price": 1599,
+    "description": "Noise-cancelling Bluetooth earbuds with 20-hour battery life."
+  },
+  {
+    "id": 3,
+    "name": "Smart Watch",
+    "price": 2999,
+    "description": "Fitness tracking smartwatch with heart rate and sleep monitor."
+  },
+  {
+    "id": 4,
+    "name": "Running Shoes",
+    "price": 2499,
+    "description": "Lightweight, breathable running shoes for daily training."
+  },
+  {
+    "id": 5,
+    "name": "Laptop Sleeve",
+    "price": 899,
+    "description": "Water-resistant 15-inch laptop sleeve with cushioned padding."
+  },
+  {
+    "id": 6,
+    "name": "Bluetooth Speaker",
+    "price": 1299,
+    "description": "Portable wireless speaker with deep bass and 10-hour playtime."
+  },
+  {
+    "id": 7,
+    "name": "Canvas Backpack",
+    "price": 1199,
+    "description": "Durable backpack with laptop compartment and multiple pockets."
+  },
+  {
+    "id": 8,
+    "name": "Sunglasses",
+    "price": 699,
+    "description": "UV-protected, unisex sunglasses with matte black frame."
+  },
+  {
+    "id": 9,
+    "name": "Gaming Mouse",
+    "price": 1099,
+    "description": "RGB optical gaming mouse with 6 programmable buttons."
+  },
+  {
+    "id": 10,
+    "name": "Desk Lamp",
+    "price": 799,
+    "description": "Adjustable LED desk lamp with touch control and 3 brightness modes."
+  }
+]
