@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import API from "../api";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/cartContext.jsx";
 
 export default function ProductList() {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
+  const { refreshCart } = useCart();
 
   useEffect(() => {
     API.get("/products")
@@ -14,7 +16,7 @@ export default function ProductList() {
 
   const addToCart = async (productId) => {
     await API.post("/cart", { productId, qty: 1 });
-    alert("Added to cart!");
+    refreshCart();
   };
 
   return (

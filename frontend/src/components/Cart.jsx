@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import API from "../api";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/cartContext.jsx";
 
 export default function Cart() {
   const [cart, setCart] = useState({ items: [], total: 0 });
   const navigate = useNavigate();
+  const { refreshCart } = useCart();
 
   const fetchCart = async () => {
     const res = await API.get("/cart");
@@ -14,6 +16,7 @@ export default function Cart() {
   const removeItem = async (id) => {
     await API.delete(`/cart/${id}`);
     fetchCart();
+    refreshCart();
   };
 
   useEffect(() => {

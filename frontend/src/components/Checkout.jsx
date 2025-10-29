@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import API from "../api";
 import ReceiptModal from "./ReceiptModal";
+import { useCart } from "../context/cartContext.jsx";
 
 export default function Checkout() {
   const [form, setForm] = useState({ name: "", email: "" });
   const [receipt, setReceipt] = useState(null);
+  const { refreshCart } = useCart();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await API.post("/checkout");
     setReceipt(res.data.receipt);
+    refreshCart();
   };
 
   return (
